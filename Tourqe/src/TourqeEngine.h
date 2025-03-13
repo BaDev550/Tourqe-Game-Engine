@@ -1,4 +1,5 @@
 #pragma once
 
-#include "Tourqe/Application.h"
-#include "Tourqe/EntiryPoint.h"
+#include "Tourqe/Application/Application.h"
+#include "Tourqe/Application/Logger.h"
+#include "Tourqe/Application/EntiryPoint.h"

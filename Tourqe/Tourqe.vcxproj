@@ -11,13 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Tourqe\Application.h" />
-    <ClInclude Include="src\Tourqe\EntiryPoint.h" />
+    <ClInclude Include="src\Tourqe\Application\Application.h" />
+    <ClInclude Include="src\Tourqe\Application\EntiryPoint.h" />
+    <ClInclude Include="src\Tourqe\Application\Logger.h" />
     <ClInclude Include="src\Tourqe\TCore.h" />
     <ClInclude Include="src\TourqeEngine.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Tourqe\Application.cpp" />
+    <ClCompile Include="src\Tourqe\Application\Application.cpp" />
+    <ClCompile Include="src\Tourqe\Application\Logger.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -67,6 +69,8 @@
       <PreprocessorDefinitions>TU_PLATFORM_WINDOWS;TU_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)Tourqe\vendor\spdlog\include\;</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -82,6 +86,8 @@
       <PreprocessorDefinitions>TU_PLATFORM_WINDOWS;TU_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)Tourqe\vendor\spdlog\include\;</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

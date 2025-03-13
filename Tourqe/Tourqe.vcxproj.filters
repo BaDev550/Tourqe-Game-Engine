@@ -18,18 +18,24 @@
     <ClInclude Include="src\Tourqe\TCore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Tourqe\Application.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\TourqeEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Tourqe\EntiryPoint.h">
+    <ClInclude Include="src\Tourqe\Application\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tourqe\Application\EntiryPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tourqe\Application\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Tourqe\Application.cpp">
+    <ClCompile Include="src\Tourqe\Application\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tourqe\Application\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
