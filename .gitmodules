@@ -1,6 +1,0 @@
-[submodule "spdlog"]
-	path = spdlog
-	url = https://github.com/gabime/spdlog
-[submodule "Tourqe/thirdParty/spdlog"]
-	path = Tourqe/thirdParty/spdlog
-	url = https://github.com/gabime/spdlog
