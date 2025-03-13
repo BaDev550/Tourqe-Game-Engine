@@ -1,0 +1,3 @@
+[submodule "Tourqe/vendor/spdlog"]
+	path = Tourqe/vendor/spdlog
+	url = https://github.com/gabime/spdlog
