@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TU_PLATFORM_WINDOWS;TU_BUILD_DLL;TU_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -152,12 +152,18 @@
     <ClInclude Include="src\Tourqe\Application\Application.h" />
     <ClInclude Include="src\Tourqe\Application\EntiryPoint.h" />
     <ClInclude Include="src\Tourqe\Application\Logger.h" />
+    <ClInclude Include="src\Tourqe\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Tourqe\Events\Event.h" />
+    <ClInclude Include="src\Tourqe\Events\KeyEvent.h" />
+    <ClInclude Include="src\Tourqe\Events\MouseEvent.h" />
     <ClInclude Include="src\Tourqe\TCore.h" />
     <ClInclude Include="src\TourqeEngine.h" />
+    <ClInclude Include="src\Tourqe\tupch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Tourqe\Application\Application.cpp" />
     <ClCompile Include="src\Tourqe\Application\Logger.cpp" />
+    <ClCompile Include="src\Tourqe\tupch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,6 +11,9 @@ namespace TourqeE {
 
 	void Application::Run()
 	{
+		WindowResizeEvent e(800, 800);
+		TU_TRACE(e.ToString());
+
 		while (true) {
 
 		}

@@ -9,3 +9,5 @@
 #else
 	#error Tourqe Engine only supports Windows for now!
 #endif // TU_PLATFORM_WINDOWS
+
+#define BIT(x) (x << x)

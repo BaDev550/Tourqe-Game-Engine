@@ -17,6 +17,9 @@ project "Tourqe"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+    pchheader "tupch.h"
+    pchsource "Tourqe/src/tupch.cpp"
     
     files
     {
@@ -26,6 +29,7 @@ project "Tourqe"
 
     includedirs 
     {
+        "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include"
     }
 

@@ -1,10 +1,9 @@
 #pragma once
 
-#include "../TCore.h"
+#include "Tourqe/TCore.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
-
-#include <memory>
+#include "spdlog/fmt/ostr.h"
 
 #define TU_ENGINE_TRACE(...) ::TourqeE::Logger::GetEngineLogger()->trace(__VA_ARGS__)
 #define TU_ENGINE_INFO(...) ::TourqeE::Logger::GetEngineLogger()->info(__VA_ARGS__)

@@ -1,6 +1,8 @@
 #pragma once
 
-#include "../TCore.h"
+#include "Tourqe/TCore.h"
+#include "Tourqe/Application/Logger.h"
+#include "Tourqe/Events/ApplicationEvent.h"
 
 namespace TourqeE {
 

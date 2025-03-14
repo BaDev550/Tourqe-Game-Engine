@@ -22,6 +22,11 @@
       <Filter>Tourqe</Filter>
     </ClInclude>
     <ClInclude Include="src\TourqeEngine.h" />
+    <ClInclude Include="src\Tourqe\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Tourqe\Events\Event.h" />
+    <ClInclude Include="src\Tourqe\Events\KeyEvent.h" />
+    <ClInclude Include="src\Tourqe\Events\MouseEvent.h" />
+    <ClInclude Include="src\Tourqe\tupch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Tourqe\Application\Application.cpp">
@@ -30,5 +35,6 @@
     <ClCompile Include="src\Tourqe\Application\Logger.cpp">
       <Filter>Tourqe\Application</Filter>
     </ClCompile>
+    <ClCompile Include="src\Tourqe\tupch.cpp" />
   </ItemGroup>
 </Project>
