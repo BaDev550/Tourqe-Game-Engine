@@ -7,6 +7,9 @@
     <Filter Include="Tourqe\Application">
       <UniqueIdentifier>{082112AD-F404-D302-5D65-CD554968BD84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tourqe\Events">
+      <UniqueIdentifier>{09F21FDE-75B2-9B14-3EED-E491AA6CE0F0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Tourqe\Application\Application.h">
@@ -18,15 +21,23 @@
     <ClInclude Include="src\Tourqe\Application\Logger.h">
       <Filter>Tourqe\Application</Filter>
     </ClInclude>
+    <ClInclude Include="src\Tourqe\Events\ApplicationEvent.h">
+      <Filter>Tourqe\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tourqe\Events\Event.h">
+      <Filter>Tourqe\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tourqe\Events\KeyEvent.h">
+      <Filter>Tourqe\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tourqe\Events\MouseEvent.h">
+      <Filter>Tourqe\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Tourqe\TCore.h">
       <Filter>Tourqe</Filter>
     </ClInclude>
     <ClInclude Include="src\TourqeEngine.h" />
-    <ClInclude Include="src\Tourqe\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Tourqe\Events\Event.h" />
-    <ClInclude Include="src\Tourqe\Events\KeyEvent.h" />
-    <ClInclude Include="src\Tourqe\Events\MouseEvent.h" />
-    <ClInclude Include="src\Tourqe\tupch.h" />
+    <ClInclude Include="src\tupch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Tourqe\Application\Application.cpp">
@@ -35,6 +46,6 @@
     <ClCompile Include="src\Tourqe\Application\Logger.cpp">
       <Filter>Tourqe\Application</Filter>
     </ClCompile>
-    <ClCompile Include="src\Tourqe\tupch.cpp" />
+    <ClCompile Include="src\tupch.cpp" />
   </ItemGroup>
 </Project>
