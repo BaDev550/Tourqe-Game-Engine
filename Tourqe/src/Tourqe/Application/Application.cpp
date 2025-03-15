@@ -5,11 +5,15 @@
 #include <glad/glad.h>
 
 namespace TourqeE {
-#define BIND_EVENT_FUNCTION(x) std::bind(&Application::x, this, std::placeholders::_1)
+	Application* Application::s_Instance = NULL;
+
 	Application::Application()
 	{
+		TU_ENGINE_ASSERT(!s_Instance, "Application allready exixts");
+		s_Instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FUNCTION(OnEvent));
+		m_Window->SetEventCallback(TU_BIND_EVENT_FUNCTION(Application::OnEvent));
 	}
 
 	Application::~Application()
@@ -19,9 +23,7 @@ namespace TourqeE {
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(OnWindowClose));
-
-		TU_ENGINE_TRACE("{0}", e.ToString());
+		dispatcher.Dispatch<WindowCloseEvent>(TU_BIND_EVENT_FUNCTION(Application::OnWindowClose));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); ) {
 			(*--it)->OnEvent(e);
@@ -33,11 +35,13 @@ namespace TourqeE {
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 	void Application::Run()

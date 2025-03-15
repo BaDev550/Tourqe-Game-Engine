@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>tupch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;TU_PLATFORM_WINDOWS;TU_BUILD_DLL;GLFW_INCLUDE_NONE;TU_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glad\include;vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -104,7 +104,7 @@
       <PrecompiledHeaderFile>tupch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;TU_PLATFORM_WINDOWS;TU_BUILD_DLL;GLFW_INCLUDE_NONE;TU_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glad\include;vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -132,7 +132,7 @@
       <PrecompiledHeaderFile>tupch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;TU_PLATFORM_WINDOWS;TU_BUILD_DLL;GLFW_INCLUDE_NONE;TU_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\glfw\include;vendor\glad\include;vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -155,6 +155,9 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLLoader.h" />
+    <ClInclude Include="src\Tourqe\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Tourqe\Application\Application.h" />
     <ClInclude Include="src\Tourqe\Application\EntiryPoint.h" />
@@ -171,6 +174,8 @@
     <ClInclude Include="src\tupch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Tourqe\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Tourqe\Application\Application.cpp" />
     <ClCompile Include="src\Tourqe\Application\Logger.cpp" />
@@ -186,6 +191,9 @@
     </ProjectReference>
     <ProjectReference Include="vendor\glad\GLAD.vcxproj">
       <Project>{5D4A857C-4981-860D-F26D-6C10DE83020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

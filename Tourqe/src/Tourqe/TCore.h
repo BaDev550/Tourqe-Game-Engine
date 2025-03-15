@@ -19,3 +19,4 @@
 #endif // TU_ENABLE_ASSERTS
 
 #define BIT(x) (x << x)
+#define TU_BIND_EVENT_FUNCTION(fn) std::bind(&fn, this, std::placeholders::_1)

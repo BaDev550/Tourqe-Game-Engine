@@ -18,6 +18,7 @@ class Sandbox : public TourqeE::Application {
 public:
 	Sandbox(){
 		PushLayer(new ExampleLayer());
+		PushOverlay(new TourqeE::ImGuiLayer());
 	}
 	~Sandbox(){}
 };

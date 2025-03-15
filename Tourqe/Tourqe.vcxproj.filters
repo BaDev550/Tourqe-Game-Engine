@@ -59,6 +59,9 @@
     </ClInclude>
     <ClInclude Include="src\TourqeEngine.h" />
     <ClInclude Include="src\tupch.h" />
+    <ClInclude Include="src\Tourqe\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -77,5 +80,7 @@
       <Filter>Tourqe\Window</Filter>
     </ClCompile>
     <ClCompile Include="src\tupch.cpp" />
+    <ClCompile Include="src\Tourqe\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
   </ItemGroup>
 </Project>
