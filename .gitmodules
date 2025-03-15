@@ -4,3 +4,6 @@
 [submodule "Tourqe/vendor/glfw"]
 	path = Tourqe/vendor/glfw
 	url = https://github.com/TheCherno/GLFW
+[submodule "Tourqe/vendor/imgui"]
+	path = Tourqe/vendor/imgui
+	url = https://github.com/TheCherno/imgui
