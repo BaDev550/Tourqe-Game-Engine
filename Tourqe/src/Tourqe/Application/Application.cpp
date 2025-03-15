@@ -1,6 +1,7 @@
 #include "tupch.h"
 #include "Application.h"
 
+#include "Tourqe/Input/Input.h"
 #include "Tourqe/Application/Logger.h"
 #include <glad/glad.h>
 

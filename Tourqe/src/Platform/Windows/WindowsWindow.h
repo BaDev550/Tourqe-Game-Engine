@@ -25,6 +25,8 @@ namespace TourqeE {
 		virtual void SetEventCallback(const EventCallbackFuntion& callback) override { m_w_Data.EventCallbackFn = callback; }
 		virtual void SetVsync(bool enabled) override;
 		virtual bool IsVsync() const;
+
+		inline virtual void* GetNativeWindow() const { return m_Window; }
 	private:
 		virtual void Init(const WindowPropeties& props);
 		virtual void Shutdown();

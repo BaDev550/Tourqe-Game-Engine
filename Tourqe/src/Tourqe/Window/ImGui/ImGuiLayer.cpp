@@ -24,6 +24,7 @@ namespace TourqeE {
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGui::StyleColorsDark();
+		ImVec4* colors = ImGui::GetStyle().Colors;
 
 		ImGuiIO& io = ImGui::GetIO();
 		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;

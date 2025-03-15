@@ -57,7 +57,7 @@
     <ClInclude Include="src\Tourqe\Events\MouseEvent.h">
       <Filter>Tourqe\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Tourqe\ImGui\ImGuiLayer.h">
+    <ClInclude Include="src\Tourqe\Window\ImGui\ImGuiLayer.h">
       <Filter>Tourqe\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\Tourqe\TCore.h">
@@ -74,6 +74,10 @@
     </ClInclude>
     <ClInclude Include="src\TourqeEngine.h" />
     <ClInclude Include="src\tupch.h" />
+    <ClInclude Include="src\Tourqe\Input\Input.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Tourqe\Input\KeyCodes.h" />
+    <ClInclude Include="src\Tourqe\Input\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
@@ -88,7 +92,7 @@
     <ClCompile Include="src\Tourqe\Application\Logger.cpp">
       <Filter>Tourqe\Application</Filter>
     </ClCompile>
-    <ClCompile Include="src\Tourqe\ImGui\ImGuiLayer.cpp">
+    <ClCompile Include="src\Tourqe\Window\ImGui\ImGuiLayer.cpp">
       <Filter>Tourqe\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Tourqe\Window\Layer.cpp">
@@ -98,5 +102,6 @@
       <Filter>Tourqe\Window</Filter>
     </ClCompile>
     <ClCompile Include="src\tupch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>
