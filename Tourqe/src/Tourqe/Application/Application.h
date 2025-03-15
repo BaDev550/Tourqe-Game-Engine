@@ -4,6 +4,7 @@
 
 #include "Tourqe/Window/Window.h"
 #include "Tourqe/Window/LayerStack.h"
+#include "Tourqe/Window/ImGui/ImGuiLayer.h"
 
 #include "Tourqe/Events/ApplicationEvent.h"
 
@@ -22,13 +23,15 @@ namespace TourqeE {
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* overlay);
 
-		inline static Application& Get() { return *s_Instance; }
 		inline Window& GetWindow() { return *m_Window; }
+		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		LayerStack m_LayerStack;
+
 		bool m_Running = true;
 
 		static Application* s_Instance;

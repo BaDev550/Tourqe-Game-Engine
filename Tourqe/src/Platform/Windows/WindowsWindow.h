@@ -32,6 +32,7 @@ namespace TourqeE {
 		virtual void Shutdown();
 
 		GLFWwindow* m_Window;
+		GLFWmonitor* m_Monitor;
 		WindowData m_w_Data;
 	};
 }

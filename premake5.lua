@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Tourqe/vendor/glfw/include"
 IncludeDir["GLAD"] = "Tourqe/vendor/glad/include"
 IncludeDir["ImGui"] = "Tourqe/vendor/ImGui/"
+IncludeDir["glm"] = "Tourqe/vendor/glm/"
 
 group "Dependencies"
     include "Tourqe/vendor/glfw"
@@ -37,7 +38,9 @@ project "Tourqe"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.inl"
     }
 
     defines
@@ -52,7 +55,8 @@ project "Tourqe"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.GLAD}",
-        "%{IncludeDir.ImGui}"
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}"
     }
 
     links
@@ -113,7 +117,9 @@ project "Sandbox"
     includedirs
     {
         "Tourqe/vendor/spdlog/include",
-        "Tourqe/src"
+        "Tourqe/src",
+        "Tourqe/vendor",
+        "%{IncludeDir.glm}"
     }
 
     links 

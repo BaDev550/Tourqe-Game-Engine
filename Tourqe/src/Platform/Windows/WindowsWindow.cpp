@@ -59,6 +59,12 @@ namespace TourqeE {
 		m_Window = glfwCreateWindow((int)m_w_Data.Width, (int)m_w_Data.Height, m_w_Data.Title.c_str(), NULL, NULL);
 		TU_ENGINE_ASSERT(m_Window != NULL, "Window Creation Failed");
 		glfwMakeContextCurrent(m_Window);
+		m_Monitor = glfwGetPrimaryMonitor();
+		static const GLFWvidmode* vidMode = glfwGetVideoMode(m_Monitor);
+		int xpos = (vidMode->width - m_w_Data.Width) / 2;
+		int ypos = (vidMode->height - m_w_Data.Height) / 2;
+		glfwSetWindowPos(m_Window, xpos, ypos);
+
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		TU_ENGINE_ASSERT(status, "Failed to init GLAD");
 		glfwSetWindowUserPointer(m_Window, &m_w_Data);

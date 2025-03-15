@@ -3,7 +3,8 @@
 class ExampleLayer : public TourqeE::Layer {
 public:
 	ExampleLayer() 
-		: Layer("Test"){}
+		: Layer("Test"){
+	}
 
 	void OnUpdate() override {
 
@@ -24,7 +25,6 @@ class Sandbox : public TourqeE::Application {
 public:
 	Sandbox(){
 		PushLayer(new ExampleLayer());
-		PushOverlay(new TourqeE::ImGuiLayer());
 	}
 	~Sandbox(){}
 };
