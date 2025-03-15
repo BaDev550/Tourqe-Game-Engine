@@ -12,8 +12,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Tourqe/vendor/glfw/include"
+IncludeDir["GLAD"] = "Tourqe/vendor/glad/include"
 
 include "Tourqe/vendor/glfw"
+include "Tourqe/vendor/glad"
 
 project "Tourqe"
     location "Tourqe"
@@ -42,12 +44,14 @@ project "Tourqe"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.GLAD}"
     }
 
     links
     {
         "GLFW",
+        "GLAD",
         "opengl32.lib"
     }
 
@@ -61,7 +65,7 @@ project "Tourqe"
         {
             "TU_PLATFORM_WINDOWS",
             "TU_BUILD_DLL",
-            "TU_ENABLE_ASSERTS"
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands
@@ -71,14 +75,17 @@ project "Tourqe"
         
     filter "configurations:Debug"
         defines "TU_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "TU_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "TU_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 project "Sandbox"

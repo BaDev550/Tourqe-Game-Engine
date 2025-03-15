@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Tourqe/Window.h"
+#include "Tourqe/Window/Window.h"
 #include <GLFW/glfw3.h>
 
 namespace TourqeE {

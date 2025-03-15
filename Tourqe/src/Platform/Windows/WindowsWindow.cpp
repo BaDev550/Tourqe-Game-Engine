@@ -7,6 +7,8 @@
 #include "Tourqe/Events/KeyEvent.h"
 #include "Tourqe/Events/MouseEvent.h"
 
+#include <glad/glad.h>
+
 namespace TourqeE {
 	static bool s_GLFWInitialized = false;
 	static void GLFWErrorCallback(int err, const char* desc);
@@ -57,6 +59,8 @@ namespace TourqeE {
 		m_Window = glfwCreateWindow((int)m_w_Data.Width, (int)m_w_Data.Height, m_w_Data.Title.c_str(), NULL, NULL);
 		TU_ENGINE_ASSERT(m_Window != NULL, "Window Creation Failed");
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		TU_ENGINE_ASSERT(status, "Failed to init GLAD");
 		glfwSetWindowUserPointer(m_Window, &m_w_Data);
 		SetVsync(true);
 

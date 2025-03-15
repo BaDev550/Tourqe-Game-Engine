@@ -1,9 +1,11 @@
 #pragma once
 
 #include "Tourqe/TCore.h"
-#include "Tourqe/Events/ApplicationEvent.h"
 
-#include "Tourqe/Window.h"
+#include "Tourqe/Window/Window.h"
+#include "Tourqe/Window/LayerStack.h"
+
+#include "Tourqe/Events/ApplicationEvent.h"
 
 namespace TourqeE {
 
@@ -16,10 +18,14 @@ namespace TourqeE {
 		void Run();
 
 		void OnEvent(Event& e);
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		LayerStack m_LayerStack;
 		bool m_Running = true;
 	};
 

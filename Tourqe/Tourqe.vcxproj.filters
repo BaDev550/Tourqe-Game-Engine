@@ -16,6 +16,9 @@
     <Filter Include="Tourqe\Events">
       <UniqueIdentifier>{09F21FDE-75B2-9B14-3EED-E491AA6CE0F0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tourqe\Window">
+      <UniqueIdentifier>{0C533607-7813-B23D-414E-FBBAADCDF619}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
@@ -45,8 +48,14 @@
     <ClInclude Include="src\Tourqe\TCore.h">
       <Filter>Tourqe</Filter>
     </ClInclude>
-    <ClInclude Include="src\Tourqe\Window.h">
-      <Filter>Tourqe</Filter>
+    <ClInclude Include="src\Tourqe\Window\Layer.h">
+      <Filter>Tourqe\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tourqe\Window\LayerStack.h">
+      <Filter>Tourqe\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tourqe\Window\Window.h">
+      <Filter>Tourqe\Window</Filter>
     </ClInclude>
     <ClInclude Include="src\TourqeEngine.h" />
     <ClInclude Include="src\tupch.h" />
@@ -60,6 +69,12 @@
     </ClCompile>
     <ClCompile Include="src\Tourqe\Application\Logger.cpp">
       <Filter>Tourqe\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tourqe\Window\Layer.cpp">
+      <Filter>Tourqe\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tourqe\Window\LayerStack.cpp">
+      <Filter>Tourqe\Window</Filter>
     </ClCompile>
     <ClCompile Include="src\tupch.cpp" />
   </ItemGroup>
