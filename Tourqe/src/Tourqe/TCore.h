@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef TU_PLATFORM_WINDOWS
+#if TU_DYNAMIC_LINK
 	#ifdef TU_BUILD_DLL
 		#define TOURQE_API __declspec(dllexport)
 	#else
 		#define TOURQE_API __declspec(dllimport)
 	#endif // TU_BUILD_DLL
+#else
+	#define TOURQE_API
+#endif
 #else
 	#error Tourqe Engine only supports Windows for now!
 #endif // TU_PLATFORM_WINDOWS
