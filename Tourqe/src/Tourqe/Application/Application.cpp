@@ -1,9 +1,12 @@
 #include "tupch.h"
 #include "Application.h"
 
+#include "Tourqe/Application/Logger.h"
+
 namespace TourqeE {
 	Application::Application()
 	{
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -12,11 +15,8 @@ namespace TourqeE {
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(800, 800);
-		TU_TRACE(e.ToString());
-
-		while (true) {
-
+		while (m_Running) {
+			m_Window->OnUpdate();
 		}
 	}
 }

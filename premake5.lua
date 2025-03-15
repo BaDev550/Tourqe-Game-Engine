@@ -11,14 +11,15 @@ workspace "Tourqe"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "Tourqe/vendor/GLFW/include"
-include "Tourqe/vendor/GLFW"
+IncludeDir["GLFW"] = "Tourqe/vendor/glfw/include"
+
+include "Tourqe/vendor/glfw"
 
 project "Tourqe"
     location "Tourqe"
     kind "SharedLib"
     language "C++"
-
+    
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
@@ -30,6 +31,12 @@ project "Tourqe"
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp"
     }
+
+    defines
+	{
+		"_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
+	}
 
     includedirs 
     {
@@ -53,7 +60,8 @@ project "Tourqe"
         defines 
         {
             "TU_PLATFORM_WINDOWS",
-            "TU_BUILD_DLL"
+            "TU_BUILD_DLL",
+            "TU_ENABLE_ASSERTS"
         }
 
         postbuildcommands

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "tupch.h"
 #include "Tourqe/TCore.h"
 
 namespace TourqeE {
