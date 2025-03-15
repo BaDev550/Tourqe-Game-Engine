@@ -10,6 +10,9 @@
 	#error Tourqe Engine only supports Windows for now!
 #endif // TU_PLATFORM_WINDOWS
 
+#ifdef TU_DEBUG
+	#define TU_ENABLE_ASSERTS
+#endif
 #ifdef TU_ENABLE_ASSERTS
 	#define TU_ASSERT(x, ...) {if(!(x)) { TU_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
 	#define TU_ENGINE_ASSERT(x, ...) {if(!(x)) { TU_ENGINE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
