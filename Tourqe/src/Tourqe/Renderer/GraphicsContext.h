@@ -9,4 +9,3 @@ namespace TourqeE
 		virtual void SwapBuffers() = 0;
 	};
 }
-

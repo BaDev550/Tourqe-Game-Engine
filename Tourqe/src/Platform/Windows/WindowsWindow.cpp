@@ -7,7 +7,7 @@
 #include "Tourqe/Events/KeyEvent.h"
 #include "Tourqe/Events/MouseEvent.h"
 
-#include <glad/glad.h>
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace TourqeE {
 	static bool s_GLFWInitialized = false;
@@ -30,7 +30,7 @@ namespace TourqeE {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVsync(bool enabled)
@@ -58,15 +58,15 @@ namespace TourqeE {
 		}
 		m_Window = glfwCreateWindow((int)m_w_Data.Width, (int)m_w_Data.Height, m_w_Data.Title.c_str(), NULL, NULL);
 		TU_ENGINE_ASSERT(m_Window != NULL, "Window Creation Failed");
-		glfwMakeContextCurrent(m_Window);
+
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
+
 		m_Monitor = glfwGetPrimaryMonitor();
 		static const GLFWvidmode* vidMode = glfwGetVideoMode(m_Monitor);
 		int xpos = (vidMode->width - m_w_Data.Width) / 2;
 		int ypos = (vidMode->height - m_w_Data.Height) / 2;
 		glfwSetWindowPos(m_Window, xpos, ypos);
-
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		TU_ENGINE_ASSERT(status, "Failed to init GLAD");
 		glfwSetWindowUserPointer(m_Window, &m_w_Data);
 		SetVsync(true);
 

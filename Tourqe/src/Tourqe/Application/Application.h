@@ -8,6 +8,9 @@
 
 #include "Tourqe/Events/ApplicationEvent.h"
 
+#include "Tourqe/Renderer/Shader.h"
+#include "Tourqe/Renderer/Buffers.h"
+
 namespace TourqeE {
 
 	class TOURQE_API Application
@@ -35,6 +38,12 @@ namespace TourqeE {
 		bool m_Running = true;
 
 		static Application* s_Instance;
+
+	private:
+		unsigned int VAO;
+		std::unique_ptr<Shader> m_Shader;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
+		std::unique_ptr<IndexBuffer> m_IndexBuffer;
 	};
 
 	Application* CreateApplication();

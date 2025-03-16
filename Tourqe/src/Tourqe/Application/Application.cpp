@@ -5,6 +5,8 @@
 #include "Tourqe/Application/Logger.h"
 #include <glad/glad.h>
 
+#include "Platform/OpenGL/OpenGLBuffers.h"
+
 namespace TourqeE {
 	Application* Application::s_Instance = NULL;
 
@@ -18,8 +20,53 @@ namespace TourqeE {
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
-	}
 
+		glGenVertexArrays(1, &VAO);
+		glBindVertexArray(VAO);
+
+		float vertices[3 * 3] = {
+			-0.5f, -0.5f ,0.0f,
+			 0.5f, -0.5f ,0.0f,
+			 0.0f,  0.5f ,0.0f,
+		};
+		m_VertexBuffer.reset(CreateVertexBuffer(vertices, sizeof(vertices)));
+		m_VertexBuffer->Bind();
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+
+		unsigned int indices[3] = {
+			0, 1, 2
+		};
+		m_IndexBuffer.reset(CreateIndexBuffer(indices, sizeof(indices)));
+		m_IndexBuffer->Bind();
+
+		glBindVertexArray(0);
+
+		std::string vertexSource = R"(
+			#version 330 core
+			layout(location = 0) in vec3 aPos;
+			out vec3 pos;
+
+			void main(){
+				pos = aPos;
+				gl_Position = vec4(aPos, 1.0f);
+			}
+		)";
+
+		std::string fragmentSource = R"(
+			#version 330 core
+			out vec4 FragColor;
+			in vec3 pos;
+
+			void main(){
+				FragColor = vec4(pos * 0.5f + 0.5f, 1.0f);
+			}
+		)";
+
+		m_Shader.reset(new Shader(vertexSource, fragmentSource));
+	}
+	
 	Application::~Application()
 	{
 	}
@@ -52,7 +99,11 @@ namespace TourqeE {
 	{
 		while (m_Running) {
 			glClear(GL_COLOR_BUFFER_BIT);
-			glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+
+			m_Shader->Bind();
+			glBindVertexArray(VAO);
+			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();

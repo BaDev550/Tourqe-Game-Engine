@@ -9,13 +9,11 @@
 #define TU_ENGINE_INFO(...) ::TourqeE::Logger::GetEngineLogger()->info(__VA_ARGS__)
 #define TU_ENGINE_WARN(...) ::TourqeE::Logger::GetEngineLogger()->warn(__VA_ARGS__)
 #define TU_ENGINE_ERROR(...) ::TourqeE::Logger::GetEngineLogger()->error(__VA_ARGS__)
-#define TU_ENGINE_FATAL(...) ::TourqeE::Logger::GetEngineLogger()->fatal(__VA_ARGS__)
 
 #define TU_TRACE(...) ::TourqeE::Logger::GetClientLogger()->trace(__VA_ARGS__)
 #define TU_INFO(...) ::TourqeE::Logger::GetClientLogger()->info(__VA_ARGS__)
 #define TU_WARN(...) ::TourqeE::Logger::GetClientLogger()->warn(__VA_ARGS__)
 #define TU_ERROR(...) ::TourqeE::Logger::GetClientLogger()->error(__VA_ARGS__)
-#define TU_FATAL(...) ::TourqeE::Logger::GetClientLogger()->fatal(__VA_ARGS__)
 
 namespace TourqeE {
 	class TOURQE_API Logger

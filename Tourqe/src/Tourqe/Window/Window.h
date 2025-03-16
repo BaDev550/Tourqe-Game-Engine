@@ -23,7 +23,6 @@ namespace TourqeE {
 		virtual void OnUpdate() = 0;
 		virtual uint GetWidth() const = 0;
 		virtual uint GetHeight() const = 0;
-
 		virtual void SetEventCallback(const EventCallbackFuntion& callback) = 0;
 		virtual void SetVsync(bool enabled) = 0;
 		virtual bool IsVsync() const = 0;

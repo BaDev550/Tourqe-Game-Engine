@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Tourqe/Window/Window.h"
-#include <GLFW/glfw3.h>
+#include "Tourqe/Renderer/GraphicsContext.h"
+#include "glfw/glfw3.h"
 
 namespace TourqeE {
 	class WindowsWindow : public Window
@@ -31,6 +32,7 @@ namespace TourqeE {
 		virtual void Init(const WindowPropeties& props);
 		virtual void Shutdown();
 
+		GraphicsContext* m_Context;
 		GLFWwindow* m_Window;
 		GLFWmonitor* m_Monitor;
 		WindowData m_w_Data;

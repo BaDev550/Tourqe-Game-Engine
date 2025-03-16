@@ -1,7 +1,7 @@
 #pragma once
 
 #ifdef TU_PLATFORM_WINDOWS
-#if TU_DYNAMIC_LINK
+#ifdef TU_DYNAMIC_LINK
 	#ifdef TU_BUILD_DLL
 		#define TOURQE_API __declspec(dllexport)
 	#else

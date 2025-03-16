@@ -24,10 +24,13 @@ public:
 	}
 
 	void OnEvent(TourqeE::Event& event) override {
-		if (event.GetEventType() == TourqeE::EventType::KeyPressed) {
+		if (event.GetEventType() == TourqeE::EventType::KeyPressed || event.GetEventType() == TourqeE::EventType::MouseButtonPressed) {
 			TourqeE::KeyPressedEvent& e = (TourqeE::KeyPressedEvent&)event;
+			TourqeE::MouseButtonPressedEvent& mE = (TourqeE::MouseButtonPressedEvent&)event;
 			if (e.GetKeyCode() == TU_KEY_TAB)
 				TU_INFO("Tab key pressed");
+			if (mE.GetMouseButton() == TU_MOUSE_BUTTON_1)
+				TU_INFO("Mouse button pressed");
 
 			TU_TRACE("{0}", (char)e.GetKeyCode());
 		}

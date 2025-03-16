@@ -85,7 +85,7 @@ namespace TourqeE {
 		colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
 		colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.35f);
 
-		style.FrameRounding = 4.0f;
+		style.FrameRounding = 6.0f;
 		style.GrabRounding = 4.0f;
 		style.WindowRounding = 4.0f;
 		style.ChildRounding = 4.0f;
