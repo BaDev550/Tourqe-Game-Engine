@@ -27,12 +27,11 @@ public:
 		if (event.GetEventType() == TourqeE::EventType::KeyPressed || event.GetEventType() == TourqeE::EventType::MouseButtonPressed) {
 			TourqeE::KeyPressedEvent& e = (TourqeE::KeyPressedEvent&)event;
 			TourqeE::MouseButtonPressedEvent& mE = (TourqeE::MouseButtonPressedEvent&)event;
-			if (e.GetKeyCode() == TU_KEY_TAB)
-				TU_INFO("Tab key pressed");
-			if (mE.GetMouseButton() == TU_MOUSE_BUTTON_1)
-				TU_INFO("Mouse button pressed");
-
-			TU_TRACE("{0}", (char)e.GetKeyCode());
+			
+			if(e.GetEventType() == TourqeE::EventType::KeyPressed)
+				TU_TRACE("{0}", (char)e.GetKeyCode());
+			if (mE.GetEventType() == TourqeE::EventType::MouseButtonPressed)
+				TU_TRACE("Mouse Button: {0}", mE.GetMouseButton());
 		}
 	}
 };

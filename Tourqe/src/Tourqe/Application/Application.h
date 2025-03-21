@@ -10,6 +10,7 @@
 
 #include "Tourqe/Renderer/Shader.h"
 #include "Tourqe/Renderer/Buffers.h"
+#include "Tourqe/Renderer/VertexArrayBuffer.h"
 
 namespace TourqeE {
 
@@ -40,10 +41,9 @@ namespace TourqeE {
 		static Application* s_Instance;
 
 	private:
-		unsigned int VAO;
-		std::unique_ptr<Shader> m_Shader;
-		std::unique_ptr<VertexBuffer> m_VertexBuffer;
-		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArrayBuffer> m_VertexArrayBuffer;
+		std::shared_ptr<VertexArrayBuffer> m_CubeVertexArrayBuffer;
 	};
 
 	Application* CreateApplication();

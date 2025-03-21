@@ -146,6 +146,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArrayBuffer.h" />
     <ClInclude Include="src\Tourqe\Renderer\Renderer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffers.h" />
     <ClInclude Include="src\Tourqe\Renderer\Buffers.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="src\Tourqe\Input\KeyCodes.h" />
     <ClInclude Include="src\Tourqe\Input\MouseButtonCodes.h" />
     <ClInclude Include="src\Tourqe\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Tourqe\Renderer\VertexArrayBuffer.h" />
     <ClInclude Include="src\Tourqe\TCore.h" />
     <ClInclude Include="src\Tourqe\Window\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Tourqe\Window\Layer.h" />
@@ -591,6 +593,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArrayBuffer.cpp" />
     <ClCompile Include="src\Tourqe\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffers.cpp" />
     <ClCompile Include="src\Tourqe\Renderer\Buffers.cpp" />
@@ -600,6 +603,7 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Tourqe\Application\Application.cpp" />
     <ClCompile Include="src\Tourqe\Application\Logger.cpp" />
+    <ClCompile Include="src\Tourqe\Renderer\VertexArrayBuffer.cpp" />
     <ClCompile Include="src\Tourqe\Window\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Tourqe\Window\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Tourqe\Window\Layer.cpp" />

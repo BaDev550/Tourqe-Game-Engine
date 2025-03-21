@@ -2,7 +2,6 @@
 #include "Buffers.h"
 
 #include "Renderer.h"
-#include "Tourqe/Application/Logger.h"
 #include "Platform/OpenGL/OpenGLBuffers.h"
 
 namespace TourqeE {

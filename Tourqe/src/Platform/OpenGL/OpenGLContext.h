@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Tourqe/TCore.h"
-#include "Tourqe/Application/Logger.h"
 #include "Tourqe/Renderer/GraphicsContext.h"
 
 struct GLFWwindow;

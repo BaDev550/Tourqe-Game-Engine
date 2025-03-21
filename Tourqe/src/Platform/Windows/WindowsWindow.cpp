@@ -1,8 +1,6 @@
 #include "tupch.h"
 #include "WindowsWindow.h"
 
-#include "Tourqe/Application/Logger.h"
-
 #include "Tourqe/Events/ApplicationEvent.h"
 #include "Tourqe/Events/KeyEvent.h"
 #include "Tourqe/Events/MouseEvent.h"

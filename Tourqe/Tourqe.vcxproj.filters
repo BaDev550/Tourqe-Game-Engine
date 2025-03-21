@@ -1378,6 +1378,8 @@
     <ClInclude Include="src\Tourqe\Renderer\Buffers.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffers.h" />
     <ClInclude Include="src\Tourqe\Renderer\Renderer.h" />
+    <ClInclude Include="src\Tourqe\Renderer\VertexArrayBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArrayBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1414,5 +1416,7 @@
     <ClCompile Include="src\Tourqe\Renderer\Buffers.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffers.cpp" />
     <ClCompile Include="src\Tourqe\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Tourqe\Renderer\VertexArrayBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArrayBuffer.cpp" />
   </ItemGroup>
 </Project>

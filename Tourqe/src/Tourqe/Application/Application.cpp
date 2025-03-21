@@ -2,7 +2,6 @@
 #include "Application.h"
 
 #include "Tourqe/Input/Input.h"
-#include "Tourqe/Application/Logger.h"
 #include <glad/glad.h>
 
 #include "Platform/OpenGL/OpenGLBuffers.h"
@@ -21,35 +20,52 @@ namespace TourqeE {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 
-		glGenVertexArrays(1, &VAO);
-		glBindVertexArray(VAO);
-
-		float vertices[3 * 3] = {
-			-0.5f, -0.5f ,0.0f,
-			 0.5f, -0.5f ,0.0f,
-			 0.0f,  0.5f ,0.0f,
+		m_VertexArrayBuffer.reset(VertexArrayBuffer::Create());
+		float vertices[3 * 7] = {
+			-0.5f, -0.5f ,0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+			 0.5f, -0.5f ,0.0f, 1.0f, 1.0f, 1.0f, 1.0f,
+			 0.0f,  0.5f ,0.0f, 0.0f, 0.0f, 1.0f, 1.0f
 		};
-		m_VertexBuffer.reset(CreateVertexBuffer(vertices, sizeof(vertices)));
-		m_VertexBuffer->Bind();
 
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
-
-		unsigned int indices[3] = {
-			0, 1, 2
+		std::shared_ptr<VertexBuffer> m_VertexBuffer;
+        m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		BufferLayout layout = {
+			{ TDT_VEC3, "aPos" },
+			{ TDT_VEC4, "aColor" }
 		};
-		m_IndexBuffer.reset(CreateIndexBuffer(indices, sizeof(indices)));
-		m_IndexBuffer->Bind();
+		m_VertexBuffer->SetLayout(layout);
+		m_VertexArrayBuffer->AddVertexBuffer(m_VertexBuffer);
+		
+		unsigned int indices[3] = { 0, 1, 2 };
+		std::shared_ptr<IndexBuffer> m_IndexBuffer;
+        m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		m_VertexArrayBuffer->SetIndexBuffer(m_IndexBuffer);
 
-		glBindVertexArray(0);
+		m_CubeVertexArrayBuffer.reset(VertexArrayBuffer::Create());
+		float Cubevertices[4 * 7] = {
+			-0.5f, -0.5f ,0.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+			 0.5f, -0.5f ,0.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+			 0.5f,  0.5f ,0.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f ,0.0f, 0.0f, 0.0f, 1.0f, 1.0f
+		};
+		std::shared_ptr<VertexBuffer> CubeVBO;
+		CubeVBO.reset(VertexBuffer::Create(Cubevertices, sizeof(Cubevertices)));
+		CubeVBO->SetLayout(layout);
+		m_CubeVertexArrayBuffer->AddVertexBuffer(CubeVBO);
+
+		unsigned int CubeIndices[6] = { 0, 1, 2, 2, 3, 0 };
+		std::shared_ptr<IndexBuffer> CubeEBO;
+		CubeEBO.reset(IndexBuffer::Create(CubeIndices, sizeof(CubeIndices) / sizeof(uint32_t)));
+		m_CubeVertexArrayBuffer->SetIndexBuffer(CubeEBO);
 
 		std::string vertexSource = R"(
 			#version 330 core
 			layout(location = 0) in vec3 aPos;
-			out vec3 pos;
-
+			layout(location = 1) in vec4 aColor;
+			out vec4 color;
+			
 			void main(){
-				pos = aPos;
+				color = aColor;
 				gl_Position = vec4(aPos, 1.0f);
 			}
 		)";
@@ -57,10 +73,10 @@ namespace TourqeE {
 		std::string fragmentSource = R"(
 			#version 330 core
 			out vec4 FragColor;
-			in vec3 pos;
+			in vec4 color;
 
 			void main(){
-				FragColor = vec4(pos * 0.5f + 0.5f, 1.0f);
+				FragColor = color;
 			}
 		)";
 
@@ -102,8 +118,11 @@ namespace TourqeE {
 			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 
 			m_Shader->Bind();
-			glBindVertexArray(VAO);
-			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+			m_CubeVertexArrayBuffer->Bind();
+			glDrawElements(GL_TRIANGLES, m_CubeVertexArrayBuffer->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+
+			m_VertexArrayBuffer->Bind();
+			glDrawElements(GL_TRIANGLES, m_VertexArrayBuffer->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();

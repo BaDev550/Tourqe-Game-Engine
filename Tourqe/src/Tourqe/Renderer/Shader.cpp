@@ -1,7 +1,6 @@
 #include "tupch.h"
 #include "Shader.h"
 #include "glad/glad.h"
-#include "Tourqe/Application/Logger.h"
 
 TourqeE::Shader::Shader(const std::string& vertexSrc, const std::string& fragmentSrc)
 {
